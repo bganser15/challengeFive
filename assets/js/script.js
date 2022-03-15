@@ -47,6 +47,9 @@ var loadTasks = function () {
     //console.log(eachId);
     var updateHour = localStorage.getItem(eachId);
     console.log(updateHour);
+    if (updateHour) {
+      $("#" + eachId).val(updateHour);
+    }
   });
 };
 
