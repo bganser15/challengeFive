@@ -10,7 +10,7 @@ var hour;
 //function to set timeblocks to color based on current hour
 var setBlockColors = function () {
   $(".timeBlock").each(function () {
-    var hourBlock = $(this).attr("id");
+    var hourBlock = $(this).attr("hourBlock");
     $(this).removeClass("past");
     $(this).removeClass("present");
     $(this).removeClass("future");
@@ -33,7 +33,7 @@ var inputTasks = function () {
 
 var saveTasks = function () {
   $(".btn").on("click", function (event) {
-    hour = $(this).parent().parent().attr("id");
+    hour = $(this).parent().parent().attr("hourBlock");
     localStorage.setItem(hour, inputText);
   });
 };
@@ -42,21 +42,17 @@ var loadTasks = function () {
   //var updateHour = localStorage.getItem("hour");
   //var updateText = localStorage.getItem(JSON.stringify(inputText));
   //var timeBlockEl = $(".timeBlock").attr("id");
-  $(".timeBlock").each(function () {
+  $(".dailyPlans").each(function (eachId) {
     var eachId = $(this).attr("id");
     //console.log(eachId);
     var updateHour = localStorage.getItem(eachId);
     console.log(updateHour);
     if (updateHour) {
-      $("#" + eachId).val(updateHour);
+      $("#" + eachId).text(updateHour);
     }
   });
 };
 
-//create blur function to input into textarea done
-//on save button click set time block hour and plans into an object
-//on save button click push that current object into locaql storage
-//create load tasks function to stringify data and display on page
 setBlockColors();
 inputTasks();
 saveTasks();
