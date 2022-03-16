@@ -35,7 +35,7 @@ var inputTasks = function () {
 //saves tasks to local storage on button click
 var saveTasks = function () {
   $(".btn").on("click", function (event) {
-    hour = $(this).parent().parent().attr("hourBlock");
+    hour = $(this).parent().attr("hourBlock");
     localStorage.setItem(hour, inputText);
   });
 };
@@ -44,7 +44,7 @@ var loadTasks = function () {
   $(".dailyPlans").each(function (eachId) {
     var eachId = $(this).attr("id");
     var updateHour = localStorage.getItem(eachId);
-    console.log(updateHour);
+    //if there is data in local storage, update on screen
     if (updateHour) {
       $("#" + eachId).text(updateHour);
     }

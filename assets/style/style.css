@@ -34,6 +34,8 @@ textarea {
   white-space: pre-wrap;
   height: 100px;
   border-top: 1px solid white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .hour {
@@ -48,12 +50,12 @@ textarea {
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #a7c8fc;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #bfd696;
   color: white;
 }
 
