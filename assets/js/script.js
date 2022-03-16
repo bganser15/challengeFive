@@ -1,6 +1,8 @@
+//sets current date using luxon library
 var DateTime = luxon.DateTime;
 var currentDate = DateTime.now().toFormat("MMM dd, yyyy");
 var currentHour = DateTime.now().hour;
+
 //displays current date at top of scheduler
 $("#currentDay").text(currentDate);
 
@@ -23,28 +25,24 @@ var setBlockColors = function () {
     }
   });
 };
+//ceates blur effect when textarea is selected
 var inputTasks = function () {
   //gets text value after user clicks off textarea
   $(".dailyPlans").on("blur", function () {
     inputText = $(this).val();
-    console.log(inputText);
   });
 };
-
+//saves tasks to local storage on button click
 var saveTasks = function () {
   $(".btn").on("click", function (event) {
     hour = $(this).parent().parent().attr("hourBlock");
     localStorage.setItem(hour, inputText);
   });
 };
-
+//set each time slot to data saved in local storage
 var loadTasks = function () {
-  //var updateHour = localStorage.getItem("hour");
-  //var updateText = localStorage.getItem(JSON.stringify(inputText));
-  //var timeBlockEl = $(".timeBlock").attr("id");
   $(".dailyPlans").each(function (eachId) {
     var eachId = $(this).attr("id");
-    //console.log(eachId);
     var updateHour = localStorage.getItem(eachId);
     console.log(updateHour);
     if (updateHour) {
@@ -53,6 +51,7 @@ var loadTasks = function () {
   });
 };
 
+//call functions
 setBlockColors();
 inputTasks();
 saveTasks();
