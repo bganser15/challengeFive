@@ -13,7 +13,7 @@
 
 ## Deployment
 
-This site was built using [GitHub Pages](https://bganser15.github.io/challengeFive/).
+This site was built using [GitHub Pages](https://bganser15.github.io/workday-scheduler/).
 
 ## Screenshots
 
